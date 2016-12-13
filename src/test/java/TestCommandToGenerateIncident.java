@@ -20,6 +20,8 @@ import java.util.*;
 public class TestCommandToGenerateIncident {
     private static final String HOST_NAME = "http://localhost:8080";
     private static final Serializable FLOWNODEID = 140089L;
+    private static final String USER_NAME = "walter.bates";
+    private static final String PASSWORD = "bpm";
     private final String COMMAND_PATH = "C:\\Proyectos\\DAON\\october 2\\CommandErrorHandlerTrigger\\target\\CommandErrorHandlerTrigger-1.0.jar";
     private LoginAPI loginAPI;
     private APISession apiSession;
@@ -49,7 +51,7 @@ public class TestCommandToGenerateIncident {
         APITypeManager.setAPITypeAndParams(ApiAccessType.HTTP, settings);
         try {
             loginAPI = TenantAPIAccessor.getLoginAPI();
-            apiSession = loginAPI.login("walter.bates", "bpm");
+            apiSession = loginAPI.login(USER_NAME, PASSWORD);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -74,7 +76,7 @@ public class TestCommandToGenerateIncident {
             APITypeManager.setAPITypeAndParams(ApiAccessType.HTTP, settings);
             try {
                 loginAPI = TenantAPIAccessor.getLoginAPI();
-                apiSession = loginAPI.login("walter.bates", "bpm");
+                apiSession = loginAPI.login(USER_NAME, PASSWORD);
             } catch (Exception e) {
                 e.printStackTrace();
             }
